@@ -1,7 +1,13 @@
-$(function(){
-  var mensaje = function(){
-    //alert('entra');
-  };
+// $(function(){
+//   var mensaje = function(){
+//     alert('entra');
+//   };
 
-  mensaje();
-});
+//   mensaje();
+// });
+
+$(function(){
+	$('#cty').change(function(){
+		$.get('/pages/ctys')
+	})
+})
