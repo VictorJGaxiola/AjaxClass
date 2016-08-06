@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :check_users
+
   def one
     respond_to do |format|
       format.html
@@ -27,5 +29,22 @@ class PagesController < ApplicationController
     end
   end
 
+  private
+
+    def check_users
+      if User.first.nil?
+        populate
+      end
+    end
+
+    def populate
+      file = Rails.root.join('vendor/excels/datos.xlsx')
+      xlsx = Roo::Spreadsheet.open(file, extension: :xlsx)
+      xlsx.each_with_pagename do |name, sheet|
+        sheet.each(nombre: 'nombre', edad: 'edad') do |hash|
+          User.create(hash)
+        end
+      end
+    end
 
 end

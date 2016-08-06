@@ -45,5 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'roo', '~> 2.4.0'
 gem 'countries'
 gem 'pry-rails'
