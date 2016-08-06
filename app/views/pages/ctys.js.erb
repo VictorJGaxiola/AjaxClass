@@ -1,1 +1,7 @@
-$('#city').append('<option>Hermosillo</option><option>CulichiRanch</option><option>Manzanillo</option>')
+$('#city option').remove()
+<% @get_all_states.each do |array| %>
+
+	$('#city').append("<option><%= array.first %></option>")
+		
+<% end %>
+

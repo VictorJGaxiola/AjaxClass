@@ -8,6 +8,12 @@
 
 $(function(){
 	$('#cty').change(function(){
-		$.get('/pages/ctys')
-	})
-})
+    var data = {
+      op1: $(this).val()
+    };
+
+		$.get('/pages/ctys', data, function(response){
+      console.log(data.op1);
+    });
+	});
+});

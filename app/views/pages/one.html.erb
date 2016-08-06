@@ -2,13 +2,19 @@
  -->
 <form>
 	<!--Countries-->
-	<select id='cty'>
-		<option>Australia</option>
-		<option>Mex</option>
-	</select>
-	<!--Cities-->
-	<select id='city'>
-		<option>GDL</option>
-	</select>
+	<% if dime_si(10) %>
+		<select id='cty'>
+			<% get_all_countries.each do |array| %>
+			  <option value="<%= array.last %>"><%= array.first %></option>
+			<% end %>
+		</select>
+		<!--Cities-->
+		<select id='city'>
+			<option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+		</select>
+	<% end %>
 
 </form>
+
+
+//Valor en el combo de city se manda a servidor como argumento.
